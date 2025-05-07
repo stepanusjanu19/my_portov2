@@ -1,0 +1,61 @@
+<div id="default-carousel" class="rounded-[30px] relative hover:shadow-md" data-carousel="slide">
+    <!-- Carousel wrapper -->
+    <div class="relative overflow-hidden rounded-[30px] h-[280px]">
+        <!-- Item 1 Linked in-->
+        <a href="https://www.linkedin.com/in/stepanus-janu-b54618241/" target="_blank">
+            <div class="bg-[#0077b7] dark:bg-gray-800 hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="absolute inset-0 block w-full flex items-center justify-center">
+                    <img class="w-28 lg:w-20" src="assets/img/linkedin.svg" alt="">
+                </div>
+            </div>
+        </a>
+        <!-- Item 2 -->
+        <a href="https://www.instagram.com/stepanusjanu19/" target="_blank">
+            <div class="hidden duration-700 ease-in-out insta" data-carousel-item>
+                <div class="absolute inset-0 block w-full flex items-center justify-center">
+                    <img class="w-28 lg:w-20" src="assets/img/instagram.svg" alt="">
+                </div>
+            </div>
+        </a>
+        <!-- Item 3 Twitter -->
+        <a href="https://gitlab.com/stepanusjanu19" target="_blank">
+            <div class="bg-[#000000] dark:bg-white hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="absolute inset-0 block w-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="80px" height="80px" viewBox="0 0 24 24">
+                    <path fill="#e24329" d="M22.548 13.29l-1.161-3.573-.001-.001-1.058-3.251a.52.52 0 0 0-.99-.034l-1.54 4.732H6.202L4.662 6.43a.52.52 0 0 0-.99.034L2.615 9.715l-.001.001-1.162 3.573a1.045 1.045 0 0 0 .375 1.169l10.001 7.288 10.001-7.288a1.045 1.045 0 0 0 .375-1.168z"/>
+                    <path fill="#fc6d26" d="M12 21.747l3.524-10.556H8.476L12 21.747z"/>
+                    <path fill="#fca326" d="M2.614 9.715l-.001.001-1.162 3.573a1.045 1.045 0 0 0 .375 1.169L12 21.747 2.614 9.715z"/>
+                    <path fill="#fca326" d="M21.386 9.715l1.162 3.573a1.045 1.045 0 0 1-.375 1.169L12 21.747l9.386-12.032z"/>
+                  </svg>
+                </div>
+            </div>
+        </a>
+    </div>
+    <!-- Slider controls -->
+    <button type="button"
+        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        data-carousel-prev>
+        <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-white-500 group-hover:bg-white/50 dark:group-hover:bg-gray-300/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:white group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-white rtl:rotate-180"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M5 1 1 5l4 4" />
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button"
+        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        data-carousel-next>
+        <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-white-500 group-hover:bg-white/50 dark:group-hover:bg-gray-300/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:white group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-white rtl:rotate-180"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 9 4-4-4-4" />
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>
