@@ -14,7 +14,7 @@ export class WorkInfoComponent {
 
   work = [
     {
-      id: 1,
+      id: 0,
       name: 'iSeller Commerce',
       address: 'Kelapa Gading, Jakarta, Indonesia',
       from_date: 'Nov 2024',
@@ -35,7 +35,7 @@ export class WorkInfoComponent {
       impact: 'This role helped sharpen my expertise in .NET technologies and enhanced my ability to deliver robust backend solutions under enterprise-grade demands.'
     },
     {
-      id: 2,
+      id: 1,
       name: 'PT Digital Agensi Nusantara',
       address: 'Bandung, West Java, Indonesia',
       from_date: 'Sep 2024',
@@ -52,7 +52,7 @@ export class WorkInfoComponent {
       impact: 'Contributed to agile development pipelines and improved backend reliability and performance across multiple client projects.'
     },
     {
-      id: 3,
+      id: 2,
       name: 'Charitas Hospital Palembang',
       address: 'Palembang, South Sumatra, Indonesia',
       from_date: 'Feb 2023',
@@ -81,7 +81,7 @@ export class WorkInfoComponent {
       impact: 'Developed mission-critical systems that supported hospital operations and improved digital workflows for staff.'
     },
     {
-      id: 4,
+      id: 3,
       name: 'PT Sistem Manajemen Dewa Rangga',
       address: 'Bekasi, West Java, Indonesia',
       from_date: 'Feb 2023',
@@ -98,7 +98,7 @@ export class WorkInfoComponent {
       impact: 'Improved my experience with server-side technologies while delivering high-quality freelance work.'
     },
     {
-      id: 5,
+      id: 4,
       name: 'Dewa Rangga Group',
       address: 'Bekasi, West Java, Indonesia',
       from_date: 'Feb 2023',
@@ -113,7 +113,7 @@ export class WorkInfoComponent {
       impact: 'Gained freelance experience and adapted quickly to project needs in a short time frame.'
     },
     {
-      id: 6,
+      id: 5,
       name: 'PT. Kognitif Skema Indonesia (Schema.id)',
       address: 'Jakarta, Indonesia',
       from_date: 'Apr 2022',

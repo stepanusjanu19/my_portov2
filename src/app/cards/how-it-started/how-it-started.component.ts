@@ -19,5 +19,4 @@ export class HowItStartedComponent {
             how I've found value in the
             cross-section between
             both disciplines.`
-  date: string = "June 1 2024"
 }

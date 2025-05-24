@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import confetti from 'canvas-confetti';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +14,12 @@ export class ProfileComponent implements OnInit {
   showPopup = false;
   animatePopup = false;
   gridCols: string | undefined;
+
+  baseurl: string = environment.urlApi;
+  fullname: string = "Stepanus Janu Adi Nugroho";
+  fulltext: string = `I love building the logic behind the scenes, crafting APIs, and exploring new technologies that make web
+                      applications powerful and scalable.Curious, always learning, and driven to grow — I’m on a journey to master
+                      the backend and bring ideas to lifethrough clean, efficient code. 🚀`
 
   celebrate() {
     const duration = 3000; // in milliseconds

@@ -1,6 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.skills-marquee-wrapper {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+  
+  .skills-marquee {
+    display: flex;
+    animation: marquee-scroll 30s linear infinite;
+    will-change: transform; /* Optimize rendering */
+    transform: translate3d(0, 0, 0); /* Use hardware acceleration */
+  }
+  
+  .skills-marquee-wrapper.paused .skills-marquee {
+    animation-play-state: paused;
+  }
+  
+  .skill-icon {
+    flex: 0 0 auto;
+    width: 64px;
+    height: 64px;
+    margin-right: 1rem;
+    background-color: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    transition: transform 0.3s;
+  }
+  
+  .skill-icon:hover {
+    transform: scale(1.05);
+  }
+  
+  .skill-icon img {
+    height: 32px;
+    object-fit: contain;
+  }
+  
+  /* Marquee animation */
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  
+  
+  
+  
+
 html {
   scroll-behavior: smooth;
 }
