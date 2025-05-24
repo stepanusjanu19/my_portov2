@@ -117,7 +117,13 @@ export class AboutComponent {
       overview: "PT Digital Agensi Nusantara is a technology provider serving the commerce, management system, ERP and etc like a vendor.",
       my_role:"As a Remote Backend Developer, Worked on developing business logic to API using Laravel and then integrated with third party like payment gateway, storage cloud, and then commerce platform with database integration with MySQL.",
       impact:"Have experience in the position of backend development in PHP (Laravel & Codeigniter) programming because it is also related to the field of this company.",
-      projects: [],
+      projects: [
+        {
+          name: "Swap Up",
+          link: '',
+          image: `${this.baseurl}/swapup.webp`,
+        },
+      ],
       fallback_summary: [
         "Implemented a RESTfull API that allowed for automated data exchange between multiple applications.",
         "Developing Apps Laundry Retail using Laravel & React JS with integrated third party like payment gateway (Stripe), storage cloud (Consign Cloud), commerce platform (Shopify), and Delivery (Australian Pos) with queue of Redis Cache.",
@@ -161,6 +167,11 @@ export class AboutComponent {
           name: "SIM HIS RS",
           link: '',
           image: `${this.baseurl}/avicenna.jpeg`,
+        },
+        {
+          name: "Queue Dashboard",
+          link: '',
+          image: `${this.baseurl}/dashboardqueue.jpeg`,
         },
       ],
       fallback_summary: [
