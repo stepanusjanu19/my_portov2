@@ -11,7 +11,15 @@ import { CommonModule } from '@angular/common';
 })
 export class ProjectsComponent {
 
+  readMore: Boolean = true;
+
   baseurl: string = environment.urlApi;
+
+  iconSize: string = '1.75rem';
+  iconSvgClass: string = 'w-5 h-5 md:w-6 md:h-6';
+
+  visibleProjects: Array<any> = [];
+  itemsPerPage = 4;
 
   projects: Array<any> = [
     {
@@ -215,4 +223,21 @@ export class ProjectsComponent {
       ]
     },
   ]
+
+  ngOnInit() {
+    this.loadMore();
+  }
+
+  loadMore() {
+    const next = this.projects.slice(this.visibleProjects.length, this.visibleProjects.length + this.itemsPerPage);
+    this.visibleProjects = [...this.visibleProjects, ...next];
+  }
+
+  isDescriptionLong(text: string): string | boolean {
+    return text && text.length > 160;
+  }
+
+  toggleReadMore(project: any) {
+    this.readMore = !this.readMore;
+  }
 }

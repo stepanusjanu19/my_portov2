@@ -1,14 +1,26 @@
 import { environment } from './../../environments/environment';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-tech-tools',
   standalone: true,
-  imports: [],
+  imports: [ CommonModule ],
   templateUrl: './tech-tools.component.html',
   styleUrl: './tech-tools.component.css'
 })
 export class TechToolsComponent {
+
+
+  isExpanded: boolean[] = [];
+
+  ngOnInit() {
+    this.isExpanded = this.items.map(() => false);
+  }
+
+  toggleReadMore(index: number): void {
+    this.isExpanded[index] = !this.isExpanded[index];
+  }
 
   tools: string = `I actively use a diverse set of cutting-edge technologies and tools in my daily work. 
                   From modern frameworks and languages to powerful platforms,
