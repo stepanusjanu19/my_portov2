@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "akshay": {
+    "stepanusjanu19": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -77,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "akshay:build:production"
+              "buildTarget": "stepanusjanu19:build:production"
             },
             "development": {
-              "buildTarget": "akshay:build:development"
+              "buildTarget": "stepanusjanu19:build:development"
             }
           },
           "defaultConfiguration": "development"
