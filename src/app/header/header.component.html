@@ -8,11 +8,20 @@
             </a>
         </h2>
 
-        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse" (click)="toggleMenu()">
+        <div class="flex md:order-2 items-center space-x-3 md:space-x-0 rtl:space-x-reverse" (click)="toggleMenu()">
             <div class="flex gap-2 items-center" (click)="confettiService.clickPopper()">
                 <img class="w-full h-full object-contain" src="assets/img/indonesia.svg" alt="tech">
                 <p class="text-sm font-mono text-gray-900 dark:text-white mr-2"></p>
             </div>
+            <a href="{{ baseurl }}/uploads/resume.pdf" download (click)="confettiService.clickPopper()"
+                title="My Resume"
+                class="group p-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-xl shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 flex items-center justify-center">
+                <svg class="w-6 h-6 text-dark dark:text-white group-hover:scale-110 transition-transform"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v12" />
+                </svg>   
+            </a>
             <button data-collapse-toggle="navbar-sticky" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                 aria-controls="navbar-sticky" aria-expanded="false">
