@@ -1,61 +1,172 @@
-<div class="container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 p-4 px-6 sm:px-12 xl:px-32 pb-20">
-
-  <!-- Header Card -->
-  <div
-    class="bg-white dark:bg-gray-800 col-span-2 md:col-span-1 lg:col-span-2 rounded-[30px] p-5 sm:p-8 flex flex-col gap-4 h-auto hover:shadow-lg dark:hover:shadow-xl">
-    <img class="w-16 lg:w-24" src="assets/img/okeeeey.svg" alt="">
-    <div class="relative inline-block">
-      <p class="font-medium text-gray-500 dark:text-gray-300 text-md">
-        {{ tools }}
-      </p>
-    </div>
-  </div>
-
-  <!-- Cards Loop -->
-  <div *ngFor="let item of items; let i = index"
-    class="bg-white dark:bg-gray-800 col-span-2 md:col-span-1 lg:col-span-1 rounded-[30px] p-5 flex flex-col justify-between relative hover:shadow-lg transition duration-300 min-h-[300px]">
-
-    <!-- Image Icon -->
-    <div class="absolute top-5 left-5 w-12 h-12">
-      <img class="w-full h-full object-contain" [src]="item.image" alt="{{item.name}} Icon">
+<!--<div
+    class="container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 p-4 px-6 sm:px-12 xl:px-32 pb-20"
+>
+    <div
+        class="bg-white dark:bg-gray-800 col-span-2 md:col-span-1 lg:col-span-2 rounded-[30px] p-5 sm:p-8 flex flex-col gap-4 h-auto hover:shadow-lg dark:hover:shadow-xl"
+    >
+        <img class="w-16 lg:w-24" src="assets/img/okeeeey.svg" alt="" />
+        <div class="relative inline-block">
+            <p class="font-medium text-gray-500 dark:text-gray-300 text-md">
+                {{ tools }}
+            </p>
+        </div>
     </div>
 
-    <!-- Content -->
-    <div class="mt-16">
-      <h2 class="text-xl font-semibold text-gray-800 dark:text-white leading-tight">
-        {{ item.name }}
-      </h2>
+    <div
+        *ngFor="let item of items; let i = index"
+        class="bg-white dark:bg-gray-800 col-span-2 md:col-span-1 lg:col-span-1 rounded-[30px] p-5 flex flex-col justify-between relative hover:shadow-lg transition duration-300 min-h-[300px]"
+    >
+        <div class="absolute top-5 left-5 w-12 h-12">
+            <img
+                class="w-full h-full object-contain"
+                [src]="item.image"
+                alt="{{ item.name }} Icon"
+            />
+        </div>
 
-      <!-- Description with Read More -->
-      <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-        {{ isExpanded[i] ? item.description : (item.description | slice:0:100) + (item.description.length > 100 ? '...' : '') }}
-      </p>
+        <div class="mt-16">
+            <h2
+                class="text-xl font-semibold text-gray-800 dark:text-white leading-tight"
+            >
+                {{ item.name }}
+            </h2>
 
-      <!-- Read More / Less Button -->
-      <button *ngIf="item.description.length > 100"
-            class="mt-2 text-gray-800 dark:text-white hover:underline text-sm focus:outline-none"
-            (click)="toggleReadMore(i)">
-            {{ isExpanded[i] ? 'Read Less' : 'Read More' }}
-      </button>
+            <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
+                {{
+                    isExpanded[i]
+                        ? item.description
+                        : (item.description | slice: 0 : 100) +
+                          (item.description.length > 100 ? "..." : "")
+                }}
+            </p>
+
+            <button
+                *ngIf="item.description.length > 100"
+                class="mt-2 text-gray-800 dark:text-white hover:underline text-sm focus:outline-none"
+                (click)="toggleReadMore(i)"
+            >
+                {{ isExpanded[i] ? "Read Less" : "Read More" }}
+            </button>
+        </div>
+
+        <a
+            [href]="item.link + '?ref=stepanusjanuporto.vercel.app'"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="absolute bottom-5 left-5"
+        >
+            <div
+                class="bg-gray-300 dark:bg-gray-700 w-10 h-10 rounded-full flex justify-center items-center hover:ring-4 ring-gray-200 dark:ring-gray-400 transition duration-300 ease-in-out"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 18.256 18.256"
+                >
+                    <g transform="translate(5.363 5.325)">
+                        <path
+                            d="M14.581,7.05,7.05,14.581"
+                            transform="translate(-7.05 -7.012)"
+                            fill="none"
+                            stroke="#0D1117"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                        ></path>
+                        <path
+                            d="M10,7l5.287.037.038,5.287"
+                            transform="translate(-7.756 -7)"
+                            fill="none"
+                            stroke="#0D1117"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                        ></path>
+                    </g>
+                    <path d="M0,0H18.256V18.256H0Z" fill="none"></path>
+                </svg>
+            </div>
+        </a>
+    </div>
+</div>-->
+
+<div class="container mx-auto px-6 sm:px-12 xl:px-32 pb-20">
+    <!-- Intro Card -->
+    <div class="bg-white dark:bg-gray-800 rounded-[30px] p-6 sm:p-10 mb-16">
+        <p class="text-gray-600 dark:text-gray-300 text-md">
+            {{ tools }}
+        </p>
     </div>
 
-    <!-- Arrow Icon Link -->
-    <a [href]="item.link + '?ref=stepanusjanuporto.vercel.app'" target="_blank" rel="noopener noreferrer"
-      class="absolute bottom-5 left-5">
-      <div
-        class="bg-gray-300 dark:bg-gray-700 w-10 h-10 rounded-full flex justify-center items-center hover:ring-4 ring-gray-200 dark:ring-gray-400 transition duration-300 ease-in-out">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-          viewBox="0 0 18.256 18.256">
-          <g transform="translate(5.363 5.325)">
-            <path d="M14.581,7.05,7.05,14.581" transform="translate(-7.05 -7.012)" fill="none" stroke="#0D1117"
-              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-            <path d="M10,7l5.287.037.038,5.287" transform="translate(-7.756 -7)" fill="none" stroke="#0D1117"
-              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-          </g>
-          <path d="M0,0H18.256V18.256H0Z" fill="none"></path>
-        </svg>
-      </div>
-    </a>
-  </div>
+    <!-- Categories -->
+    <div *ngFor="let category of categories" class="mb-20">
+        <!-- Category Header -->
+        <div class="mb-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+                {{ category.title }}
+            </h2>
+            <p
+                *ngIf="category.subtitle"
+                class="text-gray-500 dark:text-gray-400 mt-1"
+            >
+                {{ category.subtitle }}
+            </p>
+        </div>
 
+        <!-- Cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div
+                *ngFor="let item of category.items"
+                class="bg-white dark:bg-gray-800 rounded-[30px] p-5 min-h-[300px] flex flex-col justify-between hover:shadow-lg transition"
+            >
+                <!-- Icon -->
+                <img
+                    class="w-12 h-12 mb-4"
+                    [src]="item.image"
+                    [alt]="item.name"
+                />
+
+                <!-- Content -->
+                <div>
+                    <h3
+                        class="text-lg font-semibold text-gray-800 dark:text-white"
+                    >
+                        {{ item.name }}
+                    </h3>
+
+                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
+                        {{
+                            isExpanded(category.id, item.name)
+                                ? item.description
+                                : (item.description | slice: 0 : 100) +
+                                  (item.description.length > 100 ? "..." : "")
+                        }}
+                    </p>
+
+                    <button
+                        *ngIf="item.description.length > 100"
+                        class="mt-2 text-sm font-medium hover:underline"
+                        (click)="toggleReadMore(category.id, item.name)"
+                    >
+                        {{
+                            isExpanded(category.id, item.name)
+                                ? "Read Less"
+                                : "Read More"
+                        }}
+                    </button>
+                </div>
+
+                <!-- Link -->
+                <a
+                    [href]="item.link"
+                    target="_blank"
+                    rel="noopener"
+                    class="mt-4 text-sm font-medium text-gray-800 dark:text-white hover:underline"
+                >
+                    Visit →
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
