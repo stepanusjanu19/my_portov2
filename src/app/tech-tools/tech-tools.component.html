@@ -91,62 +91,84 @@
     </div>
 </div>-->
 
-<div class="container mx-auto px-6 sm:px-12 xl:px-32 pb-20">
-    <!-- Intro Card -->
-    <div class="bg-white dark:bg-gray-800 rounded-[30px] p-6 sm:p-10 mb-16">
-        <p class="text-gray-600 dark:text-gray-300 text-md">
+<div class="container mx-auto px-4 sm:px-8 xl:px-28 pb-24">
+    <!-- ================= INTRO / HERO ================= -->
+    <section
+        class="bg-white dark:bg-gray-800 rounded-[28px] p-6 sm:p-10 mb-20 flex flex-col sm:flex-row gap-6 items-start sm:items-center"
+    >
+        <img
+            class="w-14 sm:w-20 shrink-0"
+            src="assets/img/okeeeey.svg"
+            alt="Tech tools"
+        />
+
+        <p
+            class="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"
+        >
             {{ tools }}
         </p>
-    </div>
+    </section>
 
-    <!-- Categories -->
-    <div *ngFor="let category of categories" class="mb-20">
+    <!-- ================= CATEGORIES ================= -->
+    <section *ngFor="let category of categories" class="mb-24">
         <!-- Category Header -->
-        <div class="mb-6">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+        <header class="mb-8">
+            <h2
+                class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white"
+            >
                 {{ category.title }}
             </h2>
+
             <p
                 *ngIf="category.subtitle"
-                class="text-gray-500 dark:text-gray-400 mt-1"
+                class="mt-1 text-sm text-gray-500 dark:text-gray-400"
             >
                 {{ category.subtitle }}
             </p>
-        </div>
+        </header>
 
-        <!-- Cards -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <div
+        <!-- Cards Grid -->
+        <div
+            class="grid gap-4 sm:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
+        >
+            <!-- Card -->
+            <article
                 *ngFor="let item of category.items"
-                class="bg-white dark:bg-gray-800 rounded-[30px] p-5 min-h-[300px] flex flex-col justify-between hover:shadow-lg transition"
+                class="group bg-white dark:bg-gray-800 rounded-[26px] p-5 min-h-[280px] flex flex-col justify-between hover:shadow-xl transition-all duration-300"
             >
                 <!-- Icon -->
-                <img
-                    class="w-12 h-12 mb-4"
-                    [src]="item.image"
-                    [alt]="item.name"
-                />
+                <div
+                    class="w-12 h-12 mb-4 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-700"
+                >
+                    <img
+                        class="w-8 h-8 object-contain"
+                        [src]="item.image"
+                        [alt]="item.name"
+                    />
+                </div>
 
                 <!-- Content -->
-                <div>
+                <div class="flex-1">
                     <h3
-                        class="text-lg font-semibold text-gray-800 dark:text-white"
+                        class="text-base sm:text-lg font-semibold text-gray-800 dark:text-white"
                     >
                         {{ item.name }}
                     </h3>
 
-                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
+                    <p
+                        class="mt-2 text-xs sm:text-sm text-gray-500 dark:text-gray-300 leading-relaxed"
+                    >
                         {{
                             isExpanded(category.id, item.name)
                                 ? item.description
-                                : (item.description | slice: 0 : 100) +
-                                  (item.description.length > 100 ? "..." : "")
+                                : (item.description | slice: 0 : 110) +
+                                  (item.description.length > 110 ? "..." : "")
                         }}
                     </p>
 
                     <button
-                        *ngIf="item.description.length > 100"
-                        class="mt-2 text-sm font-medium hover:underline"
+                        *ngIf="item.description.length > 110"
+                        class="mt-2 text-xs sm:text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline focus:outline-none"
                         (click)="toggleReadMore(category.id, item.name)"
                     >
                         {{
@@ -157,16 +179,17 @@
                     </button>
                 </div>
 
-                <!-- Link -->
+                <!-- Footer -->
                 <a
                     [href]="item.link"
                     target="_blank"
                     rel="noopener"
-                    class="mt-4 text-sm font-medium text-gray-800 dark:text-white hover:underline"
+                    class="mt-4 inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-800 dark:text-white hover:underline"
                 >
-                    Visit →
+                    Visit
+                    <span class="text-base">→</span>
                 </a>
-            </div>
+            </article>
         </div>
-    </div>
+    </section>
 </div>
