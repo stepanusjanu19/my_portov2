@@ -476,7 +476,7 @@ export class AboutComponent {
     { name: 'Next JS', image: 'https://calm-stardust-fcbcf5.netlify.app/nextjs2.svg' },
     { name: 'Python', image: 'https://calm-stardust-fcbcf5.netlify.app/skills/python.svg' },
     { name: 'Golang', image: 'https://calm-stardust-fcbcf5.netlify.app/go.svg' },
-    { name: 'Fiber', image: 'https://gofiber.io/assets/images/logo.svg' },
+    { name: 'Fiber', image: 'https://calm-stardust-fcbcf5.netlify.app/gofiber.svg' },
     { name: 'Nix Lang', image: 'https://calm-stardust-fcbcf5.netlify.app/nix.svg' },
     { name: 'Microsoft Azure', image: 'https://calm-stardust-fcbcf5.netlify.app/azure.svg' },
     { name: 'Apache Httpd', image: 'https://calm-stardust-fcbcf5.netlify.app/apache.svg' },
