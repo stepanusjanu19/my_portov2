@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { assetUrl } from '../../shared/asset-url';
 
 @Component({
   selector: 'app-project-1',
@@ -8,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './project-1.component.css'
 })
 export class Project1Component {
+  readonly assetUrl = assetUrl;
 
 }

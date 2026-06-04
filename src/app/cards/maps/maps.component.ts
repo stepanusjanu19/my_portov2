@@ -16,9 +16,7 @@ export class MapsComponent implements OnInit {
   constructor(private mapCacheService: MapCacheService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.loadMapUrl();
-    })
+    this.loadMapUrl();
   }
 
   loadMapUrl(): void {
@@ -35,4 +33,3 @@ export class MapsComponent implements OnInit {
     }
   }
 }
-

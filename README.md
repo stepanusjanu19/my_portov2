@@ -2,11 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
 
-![myportfolio](https://calm-stardust-fcbcf5.netlify.app/ssporto.webp)
+![myportfolio](https://myportov2.netlify.app/ssporto.webp)
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `bun run start:bun` for a local dev server. Navigate to `http://127.0.0.1:4200/`. The application will automatically reload if you change any of the source files.
+
+For ngrok development, run `bun run start:ngrok:bun`, then expose port `4200` with `ngrok http 4200`. The ngrok allowed host is only configured for the development server.
+
+For Cloudflared Quick Tunnel development, run `bun run start:cloudflare:bun`, then expose the Angular origin with `cloudflared tunnel --url http://127.0.0.1:4200`. The Cloudflare allowed host is only configured for the development server.
+
+If the tunnel still returns `403 Forbidden`, run `bun run start:tunnel:bun` instead. This fallback disables host checks only for the explicit development tunnel configuration; production builds and Netlify deploys are not affected. Parcel is not required because the issue is dev-server host validation, not asset bundling.
 
 ## Code scaffolding
 

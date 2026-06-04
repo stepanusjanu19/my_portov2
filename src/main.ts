@@ -3,8 +3,5 @@ import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 
 
-setTimeout(()=>{
-  bootstrapApplication(AppComponent, appConfig)
+bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
-})
-

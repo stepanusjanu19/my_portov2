@@ -8,12 +8,12 @@ import { BlogsComponent } from './blogs/blogs.component';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
+        component: HomeComponent
     },
     {
         path: 'home',
-        component: HomeComponent
+        redirectTo: '',
+        pathMatch: 'full'
     },
     {
         path: 'about',
@@ -30,5 +30,9 @@ export const routes: Routes = [
     {
         path: 'blogs',
         component: BlogsComponent
+    },
+    {
+        path: '**',
+        redirectTo: ''
     }
 ];

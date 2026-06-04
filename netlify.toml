@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist/stepanusjanu19/browser"
+
+[build.environment]
+  NODE_VERSION = "22.12.0"
+  SITE_URL = "https://myportov2.netlify.app"
+  CONTENTFUL_SPACE_ID = "xux148ew21yp"
+  ASSET_BASE_URL = "https://pub-378f4f115de84ed8bd3436f5a524d40d.r2.dev/x-xassets"
+
+[images]
+  remote_images = ["https://.*\\.r2\\.dev/x-xassets/.*"]

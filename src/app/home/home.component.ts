@@ -1,5 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ProfileComponent } from '../cards/profile/profile.component';
 import { Project2Component } from '../cards/project-2/project-2.component';
@@ -20,6 +20,9 @@ import { DarkmodeComponent } from '../cards/darkmode/darkmode.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
+
   profile: string | undefined;
   maps: string | undefined;
   spotify: string | undefined;
@@ -27,11 +30,15 @@ export class HomeComponent implements OnInit {
   project1: string | undefined;
 
   ngOnInit(): void {
-    this.updateGridCols(window.innerWidth);
+    this.updateGridCols(this.isBrowser ? window.innerWidth : 1024);
   }
 
   @HostListener('window:resize')
   onResize() {
+    if (!this.isBrowser) {
+      return;
+    }
+
     this.updateGridCols(window.innerWidth);
   }
 

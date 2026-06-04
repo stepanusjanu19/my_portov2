@@ -16,6 +16,8 @@
             "outputPath": "dist/stepanusjanu19",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "outputMode": "static",
             "polyfills": [
               "zone.js"
             ],
@@ -81,6 +83,28 @@
             },
             "development": {
               "buildTarget": "stepanusjanu19:build:development"
+            },
+            "ngrok": {
+              "buildTarget": "stepanusjanu19:build:development",
+              "host": "127.0.0.1",
+              "port": 4200,
+              "allowedHosts": [
+                ".ngrok-free.app"
+              ]
+            },
+            "cloudflare": {
+              "buildTarget": "stepanusjanu19:build:development",
+              "host": "127.0.0.1",
+              "port": 4200,
+              "allowedHosts": [
+                ".trycloudflare.com"
+              ]
+            },
+            "tunnel": {
+              "buildTarget": "stepanusjanu19:build:development",
+              "host": "127.0.0.1",
+              "port": 4200,
+              "disableHostCheck": true
             }
           },
           "defaultConfiguration": "development"

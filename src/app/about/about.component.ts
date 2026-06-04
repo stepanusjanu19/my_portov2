@@ -1,8 +1,8 @@
-import { environment } from './../../environments/environment';
-import { CommonModule } from '@angular/common';
-import { Component, Inject, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, ElementRef, HostListener, OnInit, ViewChild, PLATFORM_ID, inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { WorkInfoComponent } from '../work-info/work-info.component';
+import { assetUrl } from '../shared/asset-url';
 @Component({
   selector: 'app-about',
   standalone: true,
@@ -11,11 +11,17 @@ import { WorkInfoComponent } from '../work-info/work-info.component';
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
+
   constructor(private dialog: MatDialog) { }
 
   openPopup(companyId: any): void {
+    if (!this.isBrowser) {
+      return;
+    }
+
     console.log(companyId);
-    const dialogWidth = window.innerWidth > 768 ? '800px' : '90%';
 
     this.dialog.open(WorkInfoComponent, {
 
@@ -33,6 +39,10 @@ export class AboutComponent {
 
   @HostListener('window:scroll', [])
   checkViewport(): void {
+    if (!this.isBrowser) {
+      return;
+    }
+
     if (!this.marqueeContainer) return;
 
     const rect = this.marqueeContainer.nativeElement.getBoundingClientRect();
@@ -44,8 +54,6 @@ export class AboutComponent {
   ngOnInit(): void {
     this.checkViewport();
   }
-
-  baseurl: string = environment.urlApi;
 
   titleicons: string = `🔧 Backend Enthusiast.
                       💻 Web Engineer at Heart.
@@ -86,17 +94,17 @@ export class AboutComponent {
         {
           name: "ASP.Net",
           link: 'https://dotnet.microsoft.com/en-us/apps/aspnet',
-          image: `${this.baseurl}/aspnet.svg`
+          image: assetUrl('aspnet.svg')
         },
         {
           name: "C#",
           link: 'https://dotnet.microsoft.com/en-us/languages/csharp',
-          image: `${this.baseurl}/csharp.svg`
+          image: assetUrl('csharp.svg')
         },
         {
           name: "Microsoft SQL Server",
           link: 'https://www.microsoft.com/en/sql-server/',
-          image: `${this.baseurl}/mssql.svg`
+          image: assetUrl('mssql.svg')
         },
         {
           name: "LINQ",
@@ -121,7 +129,7 @@ export class AboutComponent {
         {
           name: "Swap Up",
           link: '',
-          image: `${this.baseurl}/swapup.webp`,
+          image: assetUrl('swapup.webp'),
         },
       ],
       fallback_summary: [
@@ -133,22 +141,22 @@ export class AboutComponent {
         {
           name: "Laravel",
           link: 'https://laravel.com/',
-          image: `${this.baseurl}/laravel.svg`
+          image: assetUrl('laravel.svg')
         },
         {
           name: "Codeigniter",
           link: 'https://codeigniter.com/',
-          image: `${this.baseurl}/codeigniter.svg`
+          image: assetUrl('codeigniter.svg')
         },
         {
           name: "Mysql",
           link: 'https://www.mysql.com/',
-          image: `${this.baseurl}/mysql.svg`
+          image: assetUrl('mysql.svg')
         },
         {
           name: "Redis",
           link: 'https://redis.io/',
-          image: `${this.baseurl}/redis.svg`
+          image: assetUrl('redis.svg')
         },
       ]
     },
@@ -166,12 +174,12 @@ export class AboutComponent {
         {
           name: "SIM HIS RS",
           link: '',
-          image: `${this.baseurl}/avicenna.jpeg`,
+          image: assetUrl('avicenna.jpeg'),
         },
         {
           name: "Queue Dashboard",
           link: '',
-          image: `${this.baseurl}/dashboardqueue.jpeg`,
+          image: assetUrl('dashboardqueue.jpeg'),
         },
       ],
       fallback_summary: [
@@ -183,52 +191,52 @@ export class AboutComponent {
         {
           name: "ASP.Net",
           link: 'https://dotnet.microsoft.com/en-us/apps/aspnet',
-          image: `${this.baseurl}/aspnet.svg`
+          image: assetUrl('aspnet.svg')
         },
         {
           name: "Node JS",
           link: 'https://nodejs.org/en',
-          image: `${this.baseurl}/nodejs.svg`
+          image: assetUrl('nodejs.svg')
         },
         {
           name: "C#",
           link: 'https://dotnet.microsoft.com/en-us/languages/csharp',
-          image: `${this.baseurl}/csharp.svg`
+          image: assetUrl('csharp.svg')
         },
         {
           name: "Laravel",
           link: 'https://laravel.com/',
-          image: `${this.baseurl}/laravel.svg`
+          image: assetUrl('laravel.svg')
         },
         {
           name: "Codeigniter",
           link: 'https://codeigniter.com/',
-          image: `${this.baseurl}/codeigniter.svg`
+          image: assetUrl('codeigniter.svg')
         },
         {
           name: "Express JS",
           link: 'https://expressjs.com/',
-          image: `${this.baseurl}/expressjs.svg`
+          image: assetUrl('expressjs.svg')
         },
         {
           name: "Sequelize",
           link: "https://sequelize.org/",
-          image: `${this.baseurl}/sequelize.svg`
+          image: assetUrl('sequelize.svg')
         },
         {
           name: "Knex JS",
           link: "https://knexjs.org/",
-          image: `${this.baseurl}/knex.svg`
+          image: assetUrl('knex.svg')
         },
         {
           name: "Mysql",
           link: 'https://www.mysql.com/',
-          image: `${this.baseurl}/mysql.svg`
+          image: assetUrl('mysql.svg')
         },
         {
           name: "Microsoft SQL Server",
           link: 'https://www.microsoft.com/en/sql-server/',
-          image: `${this.baseurl}/mssql.svg`
+          image: assetUrl('mssql.svg')
         },
       ]
     },
@@ -253,42 +261,42 @@ export class AboutComponent {
         {
           name: "Node JS",
           link: 'https://nodejs.org/en',
-          image: `${this.baseurl}/nodejs.svg`
+          image: assetUrl('nodejs.svg')
         },
         {
           name: "Express JS",
           link: 'https://expressjs.com/',
-          image: `${this.baseurl}/expressjs.svg`
+          image: assetUrl('expressjs.svg')
         },
         {
           name: "Sequelize",
           link: "https://sequelize.org/",
-          image: `${this.baseurl}/sequelize.svg`
+          image: assetUrl('sequelize.svg')
         },
         {
           name: "Knex JS",
           link: "https://knexjs.org/",
-          image: `${this.baseurl}/knex.svg`
+          image: assetUrl('knex.svg')
         },
         {
           name: "Java",
           link: 'https://www.java.com/en/',
-          image: `${this.baseurl}/java.svg`
+          image: assetUrl('java.svg')
         },
         {
           name: "Spring Boot",
           link: 'https://spring.io/',
-          image: `${this.baseurl}/springboot.svg`
+          image: assetUrl('springboot.svg')
         },
         {
           name: "Hibernate",
           link: 'https://hibernate.org/',
-          image: `${this.baseurl}/hibernate.svg`
+          image: assetUrl('hibernate.svg')
         },
         {
           name: "PostgreSQL",
           link: 'https://www.postgresql.org/',
-          image: `${this.baseurl}/postgresql.svg`
+          image: assetUrl('postgresql.svg')
         },
       ]
     },
@@ -313,32 +321,32 @@ export class AboutComponent {
         {
           name: "Codeigniter",
           link: 'https://codeigniter.com/',
-          image: `${this.baseurl}/codeigniter.svg`
+          image: assetUrl('codeigniter.svg')
         },
         {
           name: "Mysql",
           link: 'https://www.mysql.com/',
-          image: `${this.baseurl}/mysql.svg`
+          image: assetUrl('mysql.svg')
         },
         {
           name: "HTML5",
           link: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
-          image: `${this.baseurl}/html5.svg`
+          image: assetUrl('html5.svg')
         },
         {
           name: "CSS3",
           link: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
-          image: `${this.baseurl}/css3.svg`
+          image: assetUrl('css3.svg')
         },
         {
           name: "JavaScript",
           link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
-          image: `${this.baseurl}/js.svg`
+          image: assetUrl('js.svg')
         },
         {
           name: "jQuery",
           link: 'https://jquery.com/',
-          image: `${this.baseurl}/jquery.svg`
+          image: assetUrl('jquery.svg')
         },
       ]
     },
@@ -356,7 +364,7 @@ export class AboutComponent {
         {
           name: "SoloDigitalTechno",
           link: 'https://etraining.solodigitaltechnopark.co.id/',
-          image: `${this.baseurl}/etraining.jpg`,
+          image: assetUrl('etraining.jpg'),
         },
       ],
       fallback_summary: [
@@ -370,52 +378,52 @@ export class AboutComponent {
         {
           name: "Laravel",
           link: 'https://laravel.com/',
-          image: `${this.baseurl}/laravel.svg`
+          image: assetUrl('laravel.svg')
         },
         {
           name: "Codeigniter",
           link: 'https://codeigniter.com/',
-          image: `${this.baseurl}/codeigniter.svg`
+          image: assetUrl('codeigniter.svg')
         },
         {
           name: "Mysql",
           link: 'https://www.mysql.com/',
-          image: `${this.baseurl}/mysql.svg`
+          image: assetUrl('mysql.svg')
         },
         {
           name: "HTML5",
           link: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
-          image: `${this.baseurl}/html5.svg`
+          image: assetUrl('html5.svg')
         },
         {
           name: "CSS3",
           link: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
-          image: `${this.baseurl}/css3.svg`
+          image: assetUrl('css3.svg')
         },
         {
           name: "JavaScript",
           link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
-          image: `${this.baseurl}/js.svg`
+          image: assetUrl('js.svg')
         },
         {
           name: "jQuery",
           link: 'https://jquery.com/',
-          image: `${this.baseurl}/jquery.svg`
+          image: assetUrl('jquery.svg')
         },
         {
           name: "Spring Boot",
           link: 'https://spring.io/',
-          image: `${this.baseurl}/springboot.svg`
+          image: assetUrl('springboot.svg')
         },
         {
           name: "Oracle",
           link: 'https://www.oracle.com/',
-          image: `${this.baseurl}/oracle.svg`
+          image: assetUrl('oracle.svg')
         },
         {
           name: "Hibernate",
           link: 'https://hibernate.org/',
-          image: `${this.baseurl}/hibernate.svg`
+          image: assetUrl('hibernate.svg')
         },
       ]
     }
@@ -437,52 +445,52 @@ export class AboutComponent {
   ]
 
   skills: Array<any> = [
-    { name: 'Laravel', image: 'https://calm-stardust-fcbcf5.netlify.app/laravel.svg'},
-    { name: '.NET', image: 'https://calm-stardust-fcbcf5.netlify.app/aspnet.svg'},
-    { name: 'Java', image: 'https://calm-stardust-fcbcf5.netlify.app/java.svg' },
-    { name: 'Spring Boot', image: 'https://calm-stardust-fcbcf5.netlify.app/springboot.svg' },
-    { name: 'Swipper', image: 'https://calm-stardust-fcbcf5.netlify.app/swipper.svg' },
-    { name: 'Redis Cache', image: 'https://calm-stardust-fcbcf5.netlify.app/redis.svg' },
-    { name: 'PostgreSQL', image: 'https://calm-stardust-fcbcf5.netlify.app/postgresql.svg' },
-    { name: 'C Sharp', image: 'https://calm-stardust-fcbcf5.netlify.app/skills/csharp.svg' },
-    { name: 'Codeigniter', image: 'https://calm-stardust-fcbcf5.netlify.app/skills/codeigniter.svg' },
-    { name: 'Rabbit MQ', image: 'https://calm-stardust-fcbcf5.netlify.app/skills/rabbitmq.svg' },
-    { name: 'Linux', image: 'https://calm-stardust-fcbcf5.netlify.app/skills/linux.svg' },
-    { name: 'CSS', image: 'https://calm-stardust-fcbcf5.netlify.app/css3.svg' },
-    { name: 'Tailwind UI', image: 'https://calm-stardust-fcbcf5.netlify.app/skills/tailwind.svg' },
-    { name: 'React JS', image: 'https://calm-stardust-fcbcf5.netlify.app/skills/react.svg' },
-    { name: 'Free BSD', image: 'https://calm-stardust-fcbcf5.netlify.app/skills/freebsd.svg' },
-    { name: 'Microsft SQL Server', image: 'https://calm-stardust-fcbcf5.netlify.app/mssql.svg' },
-    { name: 'Node JS', image: 'https://calm-stardust-fcbcf5.netlify.app/nodejs.svg' },
-    { name: 'Vue JS', image: 'https://calm-stardust-fcbcf5.netlify.app/vuejs.svg' },
-    { name: 'Vite JS', image: 'https://calm-stardust-fcbcf5.netlify.app/vitejs.svg' },
-    { name: 'TypeScript', image: 'https://calm-stardust-fcbcf5.netlify.app/typescript.svg' },
-    { name: 'PHP', image: 'https://calm-stardust-fcbcf5.netlify.app/php.svg' },
-    { name: 'Oracle', image: 'https://calm-stardust-fcbcf5.netlify.app/oracle.svg' },
-    { name: 'MySQL', image: 'https://calm-stardust-fcbcf5.netlify.app/mysql.svg' },
-    { name: 'Jira', image: 'https://calm-stardust-fcbcf5.netlify.app/jira.svg' },
-    { name: 'Javascript', image: 'https://calm-stardust-fcbcf5.netlify.app/js.svg' },
-    { name: 'JQuery', image: 'https://calm-stardust-fcbcf5.netlify.app/jquery.svg' },
-    { name: 'FlowBite', image: 'https://calm-stardust-fcbcf5.netlify.app/flowbite.svg' },
-    { name: 'Docker', image: 'https://calm-stardust-fcbcf5.netlify.app/docker.svg' },
-    { name: 'Hibernate', image: 'https://calm-stardust-fcbcf5.netlify.app/hibernate.svg' },
-    { name: 'Knex JS', image: 'https://calm-stardust-fcbcf5.netlify.app/knex.svg' },
-    { name: 'AWS Cloud', image: 'https://calm-stardust-fcbcf5.netlify.app/aws.svg' },
-    { name: 'Github', image: 'https://calm-stardust-fcbcf5.netlify.app/github.svg' },
-    { name: 'Angular', image: 'https://calm-stardust-fcbcf5.netlify.app/angular17.svg' },
-    { name: 'API Dog Client', image: 'https://calm-stardust-fcbcf5.netlify.app/apidog-icon.svg' },
-    { name: 'Sequelize', image: 'https://calm-stardust-fcbcf5.netlify.app/sequelize.svg' },
-    { name: 'Mongo DB', image: 'https://calm-stardust-fcbcf5.netlify.app/skills/mongodb.svg' },
-    { name: 'Next JS', image: 'https://calm-stardust-fcbcf5.netlify.app/nextjs2.svg' },
-    { name: 'Python', image: 'https://calm-stardust-fcbcf5.netlify.app/skills/python.svg' },
-    { name: 'Golang', image: 'https://calm-stardust-fcbcf5.netlify.app/go.svg' },
-    { name: 'Fiber', image: 'https://calm-stardust-fcbcf5.netlify.app/gofiber.svg' },
-    { name: 'Nix Lang', image: 'https://calm-stardust-fcbcf5.netlify.app/nix.svg' },
-    { name: 'Microsoft Azure', image: 'https://calm-stardust-fcbcf5.netlify.app/azure.svg' },
-    { name: 'Apache Httpd', image: 'https://calm-stardust-fcbcf5.netlify.app/apache.svg' },
-    { name: 'Apache Kafka', image: 'https://calm-stardust-fcbcf5.netlify.app/kafka.svg' },
-    { name: 'Jenkins', image: 'https://calm-stardust-fcbcf5.netlify.app/jenkins.svg' },
-    { name: 'Reverb', image: 'https://calm-stardust-fcbcf5.netlify.app/reverb.svg' },
-    { name: 'Nest JS', image: 'https://calm-stardust-fcbcf5.netlify.app/nestjs.svg' },
+    { name: 'Laravel', image: assetUrl('laravel.svg')},
+    { name: '.NET', image: assetUrl('aspnet.svg')},
+    { name: 'Java', image: assetUrl('java.svg') },
+    { name: 'Spring Boot', image: assetUrl('springboot.svg') },
+    { name: 'Swipper', image: assetUrl('swipper.svg') },
+    { name: 'Redis Cache', image: assetUrl('redis.svg') },
+    { name: 'PostgreSQL', image: assetUrl('postgresql.svg') },
+    { name: 'C Sharp', image: assetUrl('skills/csharp.svg') },
+    { name: 'Codeigniter', image: assetUrl('skills/codeigniter.svg') },
+    { name: 'Rabbit MQ', image: assetUrl('skills/rabbitmq.svg') },
+    { name: 'Linux', image: assetUrl('skills/linux.svg') },
+    { name: 'CSS', image: assetUrl('css3.svg') },
+    { name: 'Tailwind UI', image: assetUrl('skills/tailwind.svg') },
+    { name: 'React JS', image: assetUrl('skills/react.svg') },
+    { name: 'Free BSD', image: assetUrl('skills/freebsd.svg') },
+    { name: 'Microsft SQL Server', image: assetUrl('mssql.svg') },
+    { name: 'Node JS', image: assetUrl('nodejs.svg') },
+    { name: 'Vue JS', image: assetUrl('vuejs.svg') },
+    { name: 'Vite JS', image: assetUrl('vitejs.svg') },
+    { name: 'TypeScript', image: assetUrl('typescript.svg') },
+    { name: 'PHP', image: assetUrl('php.svg') },
+    { name: 'Oracle', image: assetUrl('oracle.svg') },
+    { name: 'MySQL', image: assetUrl('mysql.svg') },
+    { name: 'Jira', image: assetUrl('jira.svg') },
+    { name: 'Javascript', image: assetUrl('js.svg') },
+    { name: 'JQuery', image: assetUrl('jquery.svg') },
+    { name: 'FlowBite', image: assetUrl('flowbite.svg') },
+    { name: 'Docker', image: assetUrl('docker.svg') },
+    { name: 'Hibernate', image: assetUrl('hibernate.svg') },
+    { name: 'Knex JS', image: assetUrl('knex.svg') },
+    { name: 'AWS Cloud', image: assetUrl('aws.svg') },
+    { name: 'Github', image: assetUrl('github.svg') },
+    { name: 'Angular', image: assetUrl('angular17.svg') },
+    { name: 'API Dog Client', image: assetUrl('apidog-icon.svg') },
+    { name: 'Sequelize', image: assetUrl('sequelize.svg') },
+    { name: 'Mongo DB', image: assetUrl('skills/mongodb.svg') },
+    { name: 'Next JS', image: assetUrl('nextjs2.svg') },
+    { name: 'Python', image: assetUrl('skills/python.svg') },
+    { name: 'Golang', image: assetUrl('go.svg') },
+    { name: 'Fiber', image: assetUrl('gofiber.svg') },
+    { name: 'Nix Lang', image: assetUrl('nix.svg') },
+    { name: 'Microsoft Azure', image: assetUrl('azure.svg') },
+    { name: 'Apache Httpd', image: assetUrl('apache.svg') },
+    { name: 'Apache Kafka', image: assetUrl('kafka.svg') },
+    { name: 'Jenkins', image: assetUrl('jenkins.svg') },
+    { name: 'Reverb', image: assetUrl('reverb.svg') },
+    { name: 'Nest JS', image: assetUrl('nestjs.svg') },
   ];
 }

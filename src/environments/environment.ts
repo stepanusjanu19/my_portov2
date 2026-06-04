@@ -1,5 +1,11 @@
+import { generatedEnvironment } from './environment.generated';
+
 export const environment = {
-    spaceId: 'xux148ew21yp',
-    accessToken: '3sevxnGapsvCay0s7h0YzitYqyafTIHnLLPGE7iRVIM',
-    urlApi : "https://calm-stardust-fcbcf5.netlify.app",
+    production: true,
+    siteUrl: generatedEnvironment.siteUrl || 'https://pub-378f4f115de84ed8bd3436f5a524d40d.r2.dev/x-xassets',
+    assetBaseUrl: generatedEnvironment.assetBaseUrl || 'https://pub-378f4f115de84ed8bd3436f5a524d40d.r2.dev/x-xassets',
+    contentful: {
+        spaceId: generatedEnvironment.contentful.spaceId || 'xux148ew21yp',
+        accessToken: generatedEnvironment.contentful.accessToken,
+    },
 };

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ConfettiService } from '../services/confetti.service';
 import { NgClass } from '@angular/common';
 import { ClickOutsideDirective } from '../shared/directives/click-outside.directive';
+import { assetUrl } from '../shared/asset-url';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +14,7 @@ import { ClickOutsideDirective } from '../shared/directives/click-outside.direct
 })
 export class HeaderComponent {
   constructor(public confettiService: ConfettiService) { }
-  baseurl: string = environment.urlApi;
+  resumeUrl: string = assetUrl('uploads/resume.pdf');
   isMenuOpen = false;
 
   toggleMenu() {

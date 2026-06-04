@@ -1,17 +1,28 @@
 <!-- Loading Spinner -->
-<div *ngIf="loading" class="flex justify-center items-center min-h-screen dark:bg-gray-900">
+@if (loading()) {
+<div class="flex justify-center items-center min-h-screen dark:bg-gray-900">
   <div class="boxes">
     <div class="box" *ngFor="let b of [1,2,3,4]">
       <div></div><div></div><div></div><div></div>
     </div>
   </div>
 </div>
+}
+
+@if (hasError()) {
+<main class="min-h-screen dark:bg-gray-900 flex items-center justify-center px-4">
+  <p class="text-sm text-gray-700 dark:text-gray-300">
+    Blog content is temporarily unavailable.
+  </p>
+</main>
+}
 
 <!-- Blog Main Section -->
-<main *ngIf="blogPost$ | async as blogPost" class="min-h-screen dark:bg-gray-900">
+@if (blogPost(); as blogPost) {
+<main class="min-h-screen dark:bg-gray-900">
   <div class="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-10 xl:px-32 py-10 pb-20 grid gap-6 grid-cols-1">
 
-    @for (blog of blogPost.items; track $index) {
+    @for (blog of $any(blogPost).items; track $index) {
     <div
       class="bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 flex flex-col h-auto relative w-full">
 
@@ -22,28 +33,28 @@
         <div class="md:col-span-1">
           <img
             class="w-full aspect-video md:h-full object-contain rounded-xl bg-gray-50 dark:bg-gray-700 p-2"
-            [src]="blog.fields.poster.fields.file.url"
-            [alt]="blog.fields.headding" />
+            [src]="getPosterUrl(blog)"
+            [alt]="$any(blog).fields.headding" />
         </div>
 
         <!-- Blog Content -->
         <div class="md:col-span-3 flex flex-col justify-between">
           <div>
             <h3 class="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white font-mono mb-2">
-              {{ blog.fields.headding }}
+              {{ $any(blog).fields.headding }}
             </h3>
 
             <p class="text-sm text-gray-700 dark:text-gray-300 mb-3 leading-snug">
-              {{ blog.fields.quickLook }}
+              {{ $any(blog).fields.quickLook }}
             </p>
           </div>
 
           <!-- Tags -->
           <div class="flex flex-wrap gap-2 overflow-x-auto max-w-full">
-            <span *ngFor="let tag of blog.fields.tags"
-              [ngStyle]="{'background-color': tag.color || '#6b7280'}"
+            <span *ngFor="let tag of getTags(blog)"
+              [ngStyle]="{'background-color': $any(tag).color || '#6b7280'}"
               class="text-white text-xs font-medium px-2 py-0.5 rounded-full whitespace-nowrap">
-              #{{ tag.name }}
+              #{{ $any(tag).name }}
             </span>
           </div>
         </div>
@@ -52,8 +63,8 @@
       <!-- Footer Section -->
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 pt-4 mt-auto">
         <!-- External Link -->
-        @if (blog.fields.link) {
-        <a [href]="blog.fields.link + '?ref=stepanusjanuporto.vercel.app'" target="_blank"
+        @if ($any(blog).fields.link) {
+        <a [href]="$any(blog).fields.link + '?ref=stepanusjanuporto.vercel.app'" target="_blank"
           class="bg-gray-300 dark:bg-gray-700 w-10 h-10 rounded-full flex justify-center items-center hover:ring-4 ring-gray-200 dark:ring-gray-500 transition">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 18.256 18.256">
             <g transform="translate(5.363 5.325)">
@@ -75,6 +86,14 @@
     </div>
     }
 
+    @if (!$any(blogPost).items?.length) {
+    <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-lg w-full">
+      <p class="text-sm text-gray-700 dark:text-gray-300">
+        Blog content is not configured for this build.
+      </p>
+    </div>
+    }
+
     <!-- Powered by Contentful -->
     <div
       class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-lg flex gap-4 items-center hover:shadow-xl transition-all duration-300 w-full">
@@ -92,3 +111,4 @@
 
   </div>
 </main>
+}

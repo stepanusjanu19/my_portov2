@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { environment } from './../../environments/environment';
 import { CommonModule } from '@angular/common';
+import { assetUrl } from '../shared/asset-url';
 
 @Component({
   selector: 'app-projects',
@@ -13,8 +13,6 @@ export class ProjectsComponent {
 
   readMore: Boolean = true;
 
-  baseurl: string = environment.urlApi;
-
   iconSize: string = '1.75rem';
   iconSvgClass: string = 'w-5 h-5 md:w-6 md:h-6';
 
@@ -25,7 +23,7 @@ export class ProjectsComponent {
     {
       name: "My Portofolio",
       description: "A personal portfolio website designed to display my development skills and projects. This highlights my proficiency in React, and more.",
-      image: `${this.baseurl}/myporto.webp`,
+      image: assetUrl('myporto.webp'),
       github: "https://github.com/stepanusjanu19/my_porto",
       view: "https://stepanusjanuporto.vercel.app",
       status: false,
@@ -35,26 +33,26 @@ export class ProjectsComponent {
       tech: [
         {
           name: "React",
-          image: `${this.baseurl}/reactjs.svg`,
+          image: assetUrl('reactjs.svg'),
         },
         {
           name: "Tailwind",
-          image: `${this.baseurl}/tailwindcss.svg`,
+          image: assetUrl('tailwindcss.svg'),
         },
         {
           name: "Vite JS",
-          image: `${this.baseurl}/vitejs.svg`,
+          image: assetUrl('vitejs.svg'),
         },
         {
           name: "Javascript",
-          image: `${this.baseurl}/js.svg`,
+          image: assetUrl('js.svg'),
         },
       ]
     },
     {
       name: "Employee System",
       description: "An Employee for system build use integration data employee and process from Attendance to Financial.",
-      image: `${this.baseurl}/sig.jpg`,
+      image: assetUrl('sig.jpg'),
       github: "https://github.com/stepanusjanu19/sistempegawai",
       view: false,
       status: false,
@@ -63,26 +61,26 @@ export class ProjectsComponent {
       tech: [
          {
           name: "PHP",
-          image: `${this.baseurl}/php.svg`,
+          image: assetUrl('php.svg'),
         },
         {
           name: "Codeigniter",
-          image: `${this.baseurl}/codeigniter.svg`,
+          image: assetUrl('codeigniter.svg'),
         },
         {
           name: "Mysql",
-          image: `${this.baseurl}/mysql.svg`,
+          image: assetUrl('mysql.svg'),
         },
         {
           name: "Bootstrap",
-          image: `${this.baseurl}/bootstrap.svg`,
+          image: assetUrl('bootstrap.svg'),
         },
       ]
     },
     {
       name: "E-Training",
       description: "eTraining Solo Technopark is an online learning platform managed by Solo Technopark (Indonesia). The system is designed to provide training and skill development programs across multiple industry sectors, with the goal of improving workforce competency and promoting tech-based entrepreneurship.",
-      image: `${this.baseurl}/etraining.webp`,
+      image: assetUrl('etraining.webp'),
       github: false,
       view: "https://etraining.solodigitaltechnopark.co.id/",
       status: false,
@@ -91,30 +89,30 @@ export class ProjectsComponent {
       tech: [
         {
           name: "PHP",
-          image: `${this.baseurl}/php.svg`,
+          image: assetUrl('php.svg'),
         },
         {
           name: "Codeigniter",
-          image: `${this.baseurl}/codeigniter.svg`,
+          image: assetUrl('codeigniter.svg'),
         },
         {
           name: "Firebase",
-          image: `${this.baseurl}/firebase.svg`,
+          image: assetUrl('firebase.svg'),
         },
         {
           name: "Mysql",
-          image: `${this.baseurl}/mysql.svg`,
+          image: assetUrl('mysql.svg'),
         },
         {
           name: "Bootstrap",
-          image: `${this.baseurl}/bootstrap.svg`,
+          image: assetUrl('bootstrap.svg'),
         },
       ]
     },
     {
       name: "BPJS Service from HIS Apps",
       description: "An a BPJS Service integration with existing system HIS Apps on Information System Management Hospital Core.",
-      image: `${this.baseurl}/avicenna.webp`,
+      image: assetUrl('avicenna.webp'),
       github: false,
       view: false,
       status: false,
@@ -124,30 +122,30 @@ export class ProjectsComponent {
       tech: [
         {
           name: "C Sharp",
-          image: `${this.baseurl}/csharp.svg`,
+          image: assetUrl('csharp.svg'),
         },
         {
           name: ".NET",
-          image: `${this.baseurl}/aspnet.svg`,
+          image: assetUrl('aspnet.svg'),
         },
         {
           name: "Microsoft SQL Server",
-          image: `${this.baseurl}/mssql.svg`,
+          image: assetUrl('mssql.svg'),
         },
         {
           name: "Node JS",
-          image: `${this.baseurl}/nodejs.svg`,
+          image: assetUrl('nodejs.svg'),
         },
         {
           name: "PHP",
-          image: `${this.baseurl}/php.svg`,
+          image: assetUrl('php.svg'),
         },
       ]
     },
     {
       name: "Queue Dashboard with Mobile JKN",
       description: "An a queue dashboard integration with existing system HIS Apps on Information System Management Hospital Core and then third party on Mobile JKN (BPJS)",
-      image: `${this.baseurl}/dashboardqueue.jpeg`,
+      image: assetUrl('dashboardqueue.jpeg'),
       github: "https://github.com/stepanusjanu19/dashboard_antrian",
       view: false,
       status: false,
@@ -157,34 +155,34 @@ export class ProjectsComponent {
       tech: [
         {
           name: "C Sharp",
-          image: `${this.baseurl}/csharp.svg`,
+          image: assetUrl('csharp.svg'),
         },
         {
           name: ".NET",
-          image: `${this.baseurl}/aspnet.svg`,
+          image: assetUrl('aspnet.svg'),
         },
         {
           name: "Microsoft SQL Server",
-          image: `${this.baseurl}/mssql.svg`,
+          image: assetUrl('mssql.svg'),
         },
         {
           name: "Node JS",
-          image: `${this.baseurl}/nodejs.svg`,
+          image: assetUrl('nodejs.svg'),
         },
         {
           name: "PHP",
-          image: `${this.baseurl}/php.svg`,
+          image: assetUrl('php.svg'),
         },
         {
           name: "Laravel",
-          image: `${this.baseurl}/laravel.svg`,
+          image: assetUrl('laravel.svg'),
         },
       ]
     },
     {
       name: "Swap Up",
       description: "SwapUp is an Australian-based online thrift and consignment store specializing in high-quality secondhand women's and kids' fashion. Founded in Sydney, SwapUp aims to make secondhand shopping mainstream by offering a convenient, sustainable, and stylish alternative to fast fashion.",
-      image: `${this.baseurl}/swapup.webp`,
+      image: assetUrl('swapup.webp'),
       github: false,
       view: "https://swapup.com.au/",
       status: true,
@@ -194,31 +192,31 @@ export class ProjectsComponent {
       tech: [
                 {
           name: "React",
-          image: `${this.baseurl}/reactjs.svg`,
+          image: assetUrl('reactjs.svg'),
         },
         {
           name: "Tailwind",
-          image: `${this.baseurl}/tailwindcss.svg`,
+          image: assetUrl('tailwindcss.svg'),
         },
         {
           name: "Vite JS",
-          image: `${this.baseurl}/vitejs.svg`,
+          image: assetUrl('vitejs.svg'),
         },
         {
           name: "Javascript",
-          image: `${this.baseurl}/js.svg`,
+          image: assetUrl('js.svg'),
         },
         {
           name: "Mysql",
-          image: `${this.baseurl}/mysql.svg`,
+          image: assetUrl('mysql.svg'),
         },
         {
           name: "PHP",
-          image: `${this.baseurl}/php.svg`,
+          image: assetUrl('php.svg'),
         },
         {
           name: "Laravel",
-          image: `${this.baseurl}/laravel.svg`,
+          image: assetUrl('laravel.svg'),
         },
       ]
     },

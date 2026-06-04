@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+src/environments/environment.generated.ts
 
 .angular
 
@@ -29,3 +30,4 @@ dist-ssr
 # cloudflare assets
 
 .wrangler
+.node-version

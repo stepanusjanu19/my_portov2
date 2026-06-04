@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, PLATFORM_ID, inject } from '@angular/core';
 import { ConfettiService } from '../../services/confetti.service';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 
@@ -10,6 +11,9 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
   styleUrl: './contact-me.component.css'
 })
 export class ContactMeComponent {
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
+
   constructor(public confettiService: ConfettiService) { }
   value ="stepanusjanu19@gmail.com"
 
@@ -19,6 +23,8 @@ export class ContactMeComponent {
     // Trigger confetti animation
     this.confettiService.stars();
     setTimeout(() => {
-      window.location.href = 'https://github.com/stepanusjanu19/my_portov2';
+      if (this.isBrowser) {
+        window.location.href = 'https://github.com/stepanusjanu19/my_portov2';
+      }
     }, 2000);  // Redirect after 2 seconds
 }}

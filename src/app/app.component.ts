@@ -1,13 +1,12 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { DarkModeService } from './services/dark-mode.service';
-import { Component, Renderer2, ElementRef, inject, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { initFlowbite } from 'flowbite';
+import { Component, Renderer2, ElementRef, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
-import { injectSpeedInsights } from '@vercel/speed-insights';
-import { inject as vercel } from "@vercel/analytics"
 import { animate, style, transition, trigger } from '@angular/animations';
+import { filter } from 'rxjs';
+import { SeoService } from './services/seo.service';
 
 @Component({
   selector: 'app-root',
@@ -36,11 +35,22 @@ import { animate, style, transition, trigger } from '@angular/animations';
 })
 
 export class AppComponent implements OnInit {
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly router = inject(Router);
+  private readonly seo = inject(SeoService);
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
+
   constructor(private renderer: Renderer2, private el: ElementRef) { }
+
   ngOnInit(): void {
-    initFlowbite();
-    injectSpeedInsights();
-    vercel()
+    this.seo.updateForUrl(this.router.url);
+    this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event) => this.seo.updateForUrl(event.urlAfterRedirects));
+
+    if (this.isBrowser) {
+      void import('flowbite').then(({ initFlowbite }) => initFlowbite());
+    }
 
     this.renderer.setStyle(this.el.nativeElement, 'user-select', 'none');
     this.renderer.setStyle(this.el.nativeElement, '-webkit-user-select', 'none');

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { initFlowbite } from 'flowbite';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { assetUrl } from '../../shared/asset-url';
 
 @Component({
   selector: 'app-social',
@@ -9,7 +10,13 @@ import { initFlowbite } from 'flowbite';
   styleUrl: './social.component.css'
 })
 export class SocialComponent implements OnInit {
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
+  readonly assetUrl = assetUrl;
+
   ngOnInit(): void {
-    initFlowbite();
+    if (this.isBrowser) {
+      void import('flowbite').then(({ initFlowbite }) => initFlowbite());
+    }
   }
 }
