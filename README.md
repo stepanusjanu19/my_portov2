@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
 
-![myportfolio](https://myportov2.netlify.app/ssporto.webp)
+![myportfolio](./src/assets/img/ssporto.webp)
 
 ## Development server
 
